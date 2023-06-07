@@ -21,6 +21,18 @@ export class AppComponent {
   showVoteAverageFilter = false;
   showPopularityFilter = false;
 
+  titleSearch = '';
+
+  get filteredMovies(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie => 
+      movie.original_title && 
+      movie.original_title.toLowerCase().includes(this.titleSearch.toLowerCase())
+    );
+  }
+
   constructor(private readCsvService: ReadCsvService) {}
 
   ngOnInit(): void {

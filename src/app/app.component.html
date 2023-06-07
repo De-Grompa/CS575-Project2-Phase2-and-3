@@ -5,6 +5,7 @@
   <button (click)="showFilters = !showFilters">Show Filters</button>
 </nav>
 
+<!-- Start of showFilters button and contents -->
 <div *ngIf="showFilters">
   <label>
     <input type="checkbox" [(ngModel)]="showGenreFilter" /> Genres
@@ -44,7 +45,7 @@
   </label>
   <input *ngIf="showPopularityFilter" type="text" placeholder="Search Popularity..." />
 </div>
-
+<!-- End of showFilters button and contents -->
 
 <h1>Welcome to {{ title }}!</h1>
 <form
@@ -52,7 +53,7 @@
   action="/action_page.php"
   style="margin: auto; max-width: 300px"
 >
-  <input type="text" placeholder="Title Search.." name="titleSearch"/>
+  <input type="text" placeholder="Title Search.." name="titleSearch" [(ngModel)]="titleSearch"/>
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <link
@@ -62,7 +63,7 @@
 <h2>Here are the movies we have:</h2>
 <table class="table table-striped">
   <tbody>
-    <tr *ngFor="let movie of movies">
+    <tr *ngFor="let movie of filteredMovies">
       <td><a href="{{ movie.homepage }}" title="{{ movie.overview }}">{{
         movie.original_title
       }}</a>
