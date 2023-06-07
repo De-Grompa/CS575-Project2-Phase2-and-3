@@ -45,7 +45,103 @@ export class AppComponent {
   // End search by title
 
   // Start filter by genre
+  get filteredMoviesByGenre(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.genres && movie.genres.some(genre => genre.toLowerCase().includes(this.genreSearch.toLowerCase()))
+    );
+  }
+  // End filter by genre
 
+  // Start filter by company
+  get filteredMoviesByCompany(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.production_companies && movie.production_companies.some(company => company.toLowerCase().includes(this.companySearch.toLowerCase()))
+    );
+  }
+  // End filter by company
+
+  // Start filter by year
+  get filteredMoviesByYear(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.release_year && movie.release_year.toString() === this.yearSearch
+    );
+  }
+  // End filter by year
+
+  // Start filter by numerical rating
+  get filteredMoviesByRating(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.vote_average && movie.vote_average.toString() === this.ratingSearch
+    );
+  }
+  // End filter by numerical rating
+
+  // Start filter by revenue
+  get filteredMoviesByRevenue(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.revenue && movie.revenue.toString() === this.revenueSearch
+    );
+  }
+  // End filter by revenue
+
+  // Start filter by runtime
+  get filteredMoviesByRuntime(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.runtime && movie.runtime.toString() === this.runtimeSearch
+    );
+  }
+  // End filter by runtime
+
+  // Start filter by vote count
+  get filteredMoviesByVoteCount(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.vote_count && movie.vote_count.toString() === this.voteCountSearch
+    );
+  }
+  // End filter by vote count
+
+  // Start filter by vote average
+  get filteredMoviesByVoteAverage(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.vote_average && movie.vote_average.toString() === this.voteAverageSearch
+    );
+  }
+  // End filter by vote average
+
+  // Start filter by popularity
+  get filteredMoviesByPopularity(): Movie[] {
+    if (!this.movies) {
+      return [];
+    }
+    return this.movies.filter(movie =>
+      movie.popularity && movie.popularity.toString() === this.popularitySearch
+    );
+  }
+  // End filter by popularity
 
   constructor(private readCsvService: ReadCsvService) {}
 
