@@ -35,6 +35,11 @@ export class AppComponent {
     this.sortMovies();
   }
 
+  onSearchChange(searchValue: string): void {
+    const target = event.target as HTMLInputElement;
+    this.movies = this.movies.filter(movie => movie.original_title.toLowerCase().includes(searchValue.toLowerCase()));
+  }
+
   sortMovies(): void {
     let sortedMovies!: Movie[];
     switch (this.currentSorting) {
@@ -60,16 +65,16 @@ export class AppComponent {
         sortedMovies = this.movies.sort((a, b) => b.revenue - a.revenue);
         break;
       case 'alphabetical (a-z)':
-        sortedMovies = this.movies.sort((a, b) => a.title.localeCompare(b.title));
+        sortedMovies = this.movies.sort((a, b) => a.original_title.localeCompare(b.original_title));
         break;
       case 'alphabetical (z-a)':
-        sortedMovies = this.movies.sort((a, b) => b.title.localeCompare(a.title));
+        sortedMovies = this.movies.sort((a, b) => b.original_title.localeCompare(a.original_title));
         break;
       case 'release year (increasing)':
-        sortedMovies = this.movies.sort((a, b) => a.releaseYear - b.releaseYear);
+        sortedMovies = this.movies.sort((a, b) => a.release_year - b.release_year);
         break;
       case 'release year (decreasing)':
-        sortedMovies = this.movies.sort((a, b) => b.releaseYear - a.releaseYear);
+        sortedMovies = this.movies.sort((a, b) => b.release_year - a.release_year);
         break;
     }
     this.movies = sortedMovies;

@@ -1,12 +1,3 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <nav>
   <button (click)="cycleSorting()" [title]="currentSorting">
     {{ currentSorting }} Movies
@@ -14,11 +5,11 @@
 </nav>
 <h1>Welcome to {{ title }}!</h1>
 <form
-  class="example"
+  class="titleSearch"
   action="/action_page.php"
   style="margin: auto; max-width: 300px"
 >
-  <input type="text" placeholder="Search.." name="search2" />
+  <input type="text" placeholder="Title Search.." name="titleSearch"/>
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <link
@@ -27,37 +18,25 @@
 />
 <h2>Here are the movies we have:</h2>
 <table class="table table-striped">
-  <thead>
-    <tr *ngFor="let movie of movies">
-      <a href="{{ movie.homepage }}" title="{{ movie.shortSummary }}">{{
-        movie.title
-      }}</a>
-    </tr>
-  </thead>
   <tbody>
     <tr *ngFor="let movie of movies">
+      <td><a href="{{ movie.homepage }}" title="{{ movie.overview }}">{{
+        movie.original_title
+      }}</a>
+      </td>
       <td>{{ movie.id }}</td>
       <td>{{ movie.popularity }}</td>
       <td>{{ movie.budget }}</td>
       <td>{{ movie.revenue }}</td>
-      <td>{{ movie.title }}</td>
       <td>{{ movie.cast }}</td>
       <td>{{ movie.homepage }}</td>
       <td>{{ movie.director }}</td>
-      <td>{{ movie.shortSummary }}</td>
+      <td>{{ movie.overview }}</td>
       <td>{{ movie.genres }}</td>
-      <td>{{ movie.productionCompanies }}</td>
-      <td>{{ movie.releaseYear }}</td>
+      <td>{{ movie.production_companies }}</td>
+      <td>{{ movie.release_year }}</td>
     </tr>
   </tbody>
 </table>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet></router-outlet>

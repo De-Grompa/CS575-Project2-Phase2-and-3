@@ -17,7 +17,7 @@ nav button {
   }
   
   /* search field */
-  form.example input[type=text] {
+  form.titleSearch input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -27,7 +27,7 @@ nav button {
   }
   
   /* submit button */
-  form.example button {
+  form.titleSearch button {
     float: left;
     width: 20%;
     padding: 10px;
@@ -38,13 +38,24 @@ nav button {
     border-left: none; 
     cursor: pointer;
   }
+
+  /* tabular data */
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-color: black;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
   
-  form.example button:hover {
+  form.titleSearch button:hover {
     background: #0b7dda;
   }
   
   /* Clear floats */
-  form.example::after {
+  form.titleSearch::after {
     content: "";
     clear: both;
     display: table;

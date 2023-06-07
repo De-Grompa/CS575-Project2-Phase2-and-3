@@ -19,11 +19,11 @@ export class ReadCsvService {
 
   private parseCsvData(data: string): Movie[] {
     const lines = data.split('\n');
-    const headers = lines[0].split(',');
+    const headers = lines[0].split('~');
     const movies: Movie[] = [];
 
     for (let i = 1; i < lines.length; i++) {
-      const movieData = lines[i].split(',');
+      const movieData = lines[i].split('~');
       const movie: any = {};
       for (let j = 0; j < headers.length; j++) {
         movie[headers[j]] = movieData[j];
