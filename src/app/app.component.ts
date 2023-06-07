@@ -22,8 +22,18 @@ export class AppComponent {
   showPopularityFilter = false;
 
   titleSearch = '';
+  genreSearch = '';
+  companySearch = '';
+  yearSearch = '';
+  ratingSearch = '';
+  revenueSearch = '';
+  runtimeSearch = '';
+  voteCountSearch = '';
+  voteAverageSearch = '';
+  popularitySearch = '';
 
-  get filteredMovies(): Movie[] {
+  // Start search by title
+  get filteredMoviesByTitle(): Movie[] {
     if (!this.movies) {
       return [];
     }
@@ -32,6 +42,10 @@ export class AppComponent {
       movie.original_title.toLowerCase().includes(this.titleSearch.toLowerCase())
     );
   }
+  // End search by title
+
+  // Start filter by genre
+
 
   constructor(private readCsvService: ReadCsvService) {}
 

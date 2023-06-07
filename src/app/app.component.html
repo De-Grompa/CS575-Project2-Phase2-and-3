@@ -63,7 +63,7 @@
 <h2>Here are the movies we have:</h2>
 <table class="table table-striped">
   <tbody>
-    <tr *ngFor="let movie of filteredMovies">
+    <tr *ngFor="let movie of filteredMoviesByTitle | slice : 0 : 10">
       <td><a href="{{ movie.homepage }}" title="{{ movie.overview }}">{{
         movie.original_title
       }}</a>
