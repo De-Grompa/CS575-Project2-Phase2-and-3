@@ -1,4 +1,3 @@
-
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -8,9 +7,10 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
 <nav>
-  <button (click)="cycleSorting()" [title]="currentSorting">{{currentSorting}} Movies</button>
+  <button (click)="cycleSorting()" [title]="currentSorting">
+    {{ currentSorting }} Movies
+  </button>
 </nav>
 <h1>Welcome to {{ title }}!</h1>
 <form
@@ -26,13 +26,23 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <h2>Here are the movies we have:</h2>
-<ul>
-  <li *ngFor="let movie of movies">
-    <a href="{{ movie.homepage }}" title="{{ movie.shortSummary }}">{{ movie.title }}</a>
-  </li>
-</ul>
-
-
+<table class="table table-striped">
+  <thead>
+    <tr *ngFor="let movie of movies">
+      <a href="{{ movie.homepage }}" title="{{ movie.shortSummary }}">{{
+        movie.title
+      }}</a>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.id }}</td>
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.popularity }}</td>
+      <td>{{ movie.budget }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
