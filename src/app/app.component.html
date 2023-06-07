@@ -2,7 +2,50 @@
   <button (click)="cycleSorting()" [title]="currentSorting">
     {{ currentSorting }} Movies
   </button>
+  <button (click)="showFilters = !showFilters">Show Filters</button>
 </nav>
+
+<div *ngIf="showFilters">
+  <label>
+    <input type="checkbox" [(ngModel)]="showGenreFilter" /> Genres
+  </label>
+  <input *ngIf="showGenreFilter" type="text" placeholder="Search Genres..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showCompanyFilter" /> Production
+    Companies
+  </label>
+  <input *ngIf="showCompanyFilter" type="text" placeholder="Search Companies..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showYearFilter" /> Release Year
+  </label>
+  <input *ngIf="showYearFilter" type="text" placeholder="Search Years..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showRatingFilter" /> Rating
+  </label>
+  <input *ngIf="showRatingFilter" type="text" placeholder="Search Ratings..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showRevenueFilter" /> Revenue
+  </label>
+  <input *ngIf="showRevenueFilter" type="text" placeholder="Search Revenue..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showRuntimeFilter" /> Runtime
+  </label>
+  <input *ngIf="showRuntimeFilter" type="text" placeholder="Search Runtime..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showVoteCountFilter" /> Vote Count
+  </label>
+  <input *ngIf="showVoteCountFilter" type="text" placeholder="Search Vote Count..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showVoteAverageFilter" /> Vote Average
+  </label>
+  <input *ngIf="showVoteAverageFilter" type="text" placeholder="Search Vote Average..." />
+  <label>
+    <input type="checkbox" [(ngModel)]="showPopularityFilter" /> Popularity
+  </label>
+  <input *ngIf="showPopularityFilter" type="text" placeholder="Search Popularity..." />
+</div>
+
+
 <h1>Welcome to {{ title }}!</h1>
 <form
   class="titleSearch"

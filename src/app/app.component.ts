@@ -10,6 +10,16 @@ import { Movie } from './movie.model';
 export class AppComponent {
   title = 'CS575-Project2-Phase1 - Movie Filter';
   movies!: Movie[];
+  showFilters = false;
+  showGenreFilter = false;
+  showCompanyFilter = false;
+  showYearFilter = false;
+  showRatingFilter = false;
+  showRevenueFilter = false;
+  showRuntimeFilter = false;
+  showVoteCountFilter = false;
+  showVoteAverageFilter = false;
+  showPopularityFilter = false;
 
   constructor(private readCsvService: ReadCsvService) {}
 
@@ -35,10 +45,7 @@ export class AppComponent {
     this.sortMovies();
   }
 
-  onSearchChange(searchValue: string): void {
-    const target = event.target as HTMLInputElement;
-    this.movies = this.movies.filter(movie => movie.original_title.toLowerCase().includes(searchValue.toLowerCase()));
-  }
+
 
   sortMovies(): void {
     let sortedMovies!: Movie[];
