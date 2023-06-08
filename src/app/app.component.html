@@ -32,7 +32,11 @@
     <input type="checkbox" [(ngModel)]="showCompanyFilter" /> Production
     Companies
   </label>
-  <input *ngIf="showCompanyFilter" type="text" placeholder="Search Companies..." />
+  <input
+    *ngIf="showCompanyFilter"
+    type="text"
+    placeholder="Search Companies..."
+  />
   <label>
     <input type="checkbox" [(ngModel)]="showYearFilter" /> Release Year
   </label>
@@ -44,23 +48,43 @@
   <label>
     <input type="checkbox" [(ngModel)]="showRevenueFilter" /> Revenue
   </label>
-  <input *ngIf="showRevenueFilter" type="text" placeholder="Search Revenue..." />
+  <input
+    *ngIf="showRevenueFilter"
+    type="text"
+    placeholder="Search Revenue..."
+  />
   <label>
     <input type="checkbox" [(ngModel)]="showRuntimeFilter" /> Runtime
   </label>
-  <input *ngIf="showRuntimeFilter" type="text" placeholder="Search Runtime..." />
+  <input
+    *ngIf="showRuntimeFilter"
+    type="text"
+    placeholder="Search Runtime..."
+  />
   <label>
     <input type="checkbox" [(ngModel)]="showVoteCountFilter" /> Vote Count
   </label>
-  <input *ngIf="showVoteCountFilter" type="text" placeholder="Search Vote Count..." />
+  <input
+    *ngIf="showVoteCountFilter"
+    type="text"
+    placeholder="Search Vote Count..."
+  />
   <label>
     <input type="checkbox" [(ngModel)]="showVoteAverageFilter" /> Vote Average
   </label>
-  <input *ngIf="showVoteAverageFilter" type="text" placeholder="Search Vote Average..." />
+  <input
+    *ngIf="showVoteAverageFilter"
+    type="text"
+    placeholder="Search Vote Average..."
+  />
   <label>
     <input type="checkbox" [(ngModel)]="showPopularityFilter" /> Popularity
   </label>
-  <input *ngIf="showPopularityFilter" type="text" placeholder="Search Popularity..." />
+  <input
+    *ngIf="showPopularityFilter"
+    type="text"
+    placeholder="Search Popularity..."
+  />
 </div>
 <!-- End of showFilters button and contents -->
 
@@ -70,7 +94,12 @@
   action="/action_page.php"
   style="margin: auto; max-width: 300px"
 >
-  <input type="text" placeholder="Title Search.." name="titleSearch" [(ngModel)]="titleSearch"/>
+  <input
+    type="text"
+    placeholder="Title Search.."
+    name="titleSearch"
+    [(ngModel)]="titleSearch"
+  />
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <link
@@ -81,9 +110,13 @@
 <table class="table table-striped">
   <tbody>
     <tr *ngFor="let movie of filteredMoviesByTitle | slice : 0 : 10">
-      <td><a href="{{ movie.homepage }}" title="{{ movie.overview }}">{{
-        movie.original_title
-      }}</a>
+      <td>
+        <a
+          href="{{ movie.homepage }}"
+          routerLink="/movie-page"
+          title="{{ movie.overview }}"
+          >{{ movie.original_title }}</a
+        >
       </td>
       <td>{{ movie.id }}</td>
       <td>{{ movie.popularity }}</td>
@@ -101,3 +134,4 @@
 </table>
 
 <router-outlet></router-outlet>
+```
