@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
-    movies = [
-        {title: 'Spiderman: No Way Home', genre: 'Action'},
-    ];
+  movies = [{ title: 'Spiderman: No Way Home', genre: 'Action' }];
 
-  // Our service logic here 
+  // Our service logic here
   getFilteredMovies(genre: string) {
-    return this.movies.filter(movie => movie.genre === genre);
-  }  
+    return this.movies.filter((movie) => movie.genre === genre);
+  }
 }
