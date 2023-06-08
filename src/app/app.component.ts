@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReadCsvService } from './read-csv.service';
 import { Movie } from './movie.model';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,8 @@ export class AppComponent {
   showVoteAverageFilter = false;
   showPopularityFilter = false;
 
+  showUsers = false;
+
   titleSearch = '';
   genreSearch = '';
   companySearch = '';
@@ -31,6 +34,20 @@ export class AppComponent {
   voteCountSearch = '';
   voteAverageSearch = '';
   popularitySearch = '';
+
+
+  // Start showUsers
+  toggleUsers() {
+    this.showUsers = !this.showUsers;
+    let users = this.users;
+    console.log(users);
+  }
+  // End showUsers
+
+
+  get users(): any[] {
+    return this.inMemoryDataService.users;
+  }
 
   // Start search by title
   get filteredMoviesByTitle(): Movie[] {
@@ -143,7 +160,7 @@ export class AppComponent {
   }
   // End filter by popularity
 
-  constructor(private readCsvService: ReadCsvService) {}
+  constructor(private readCsvService: ReadCsvService, private inMemoryDataService: InMemoryDataService) {}
 
   ngOnInit(): void {
     this.readCsvService.getMovies().subscribe(movies => {
