@@ -11,3 +11,4 @@ export class MovieService {
     return this.movies.filter((movie) => movie.genre === genre);
   }
 }
+
